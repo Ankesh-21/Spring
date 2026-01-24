@@ -48,4 +48,9 @@ public class productController {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @PostMapping("/product/{pid}/image")
+    public ResponseEntity<byte[]>getImageData(@PathVariable int pid){
+        product fetchedProduct = serv.getProductByID(pid);
+        
+    }
 }
