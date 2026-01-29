@@ -7,7 +7,8 @@ const Home = () => {
     const fetchTasks = async () => {
       try {
         const res = await fetch("http://localhost:8080/api/tasks");
-        const data = res.json();
+        const data = await res.json();
+        console.log(data);
         setTasks(data);
         setLoading(false);
       } catch (err) {
@@ -20,7 +21,7 @@ const Home = () => {
   if (loading) return <>Loading....</>
   return (
     <>
-        <h1>This is Home Page</h1>
+        <h1>{tasks}</h1>
     </>
   )
 };
