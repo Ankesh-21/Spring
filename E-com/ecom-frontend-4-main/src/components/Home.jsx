@@ -23,7 +23,7 @@ const Home = ({ selectedCategory }) => {
             try {
               const response = await axios.get(
                 `http://localhost:8080/api/product/${product.id}/image`,
-                { responseType: "blob" },
+                { responseType: "blob" }
               );
               const imageUrl = URL.createObjectURL(response.data);
               return { ...product, imageUrl };
@@ -31,11 +31,11 @@ const Home = ({ selectedCategory }) => {
               console.error(
                 "Error fetching image for product ID:",
                 product.id,
-                error,
+                error
               );
               return { ...product, imageUrl: "placeholder-image-url" };
             }
-          }),
+          })
         );
         setProducts(updatedProducts);
       };
@@ -71,13 +71,13 @@ const Home = ({ selectedCategory }) => {
           </h2>
         ) : (
           filteredProducts.map((product) => {
-            const { id, brand, name, price, available, imageUrl } =
+            const { id, brand, name, price, productAvailable, imageUrl } =
               product;
             const cardStyle = {
               width: "18rem",
               height: "12rem",
               boxShadow: "rgba(0, 0, 0, 0.24) 0px 2px 3px",
-              backgroundColor: available ? "#fff" : "#ccc",
+              backgroundColor: productAvailable ? "#fff" : "#ccc",
             };
             return (
               <div
@@ -86,7 +86,7 @@ const Home = ({ selectedCategory }) => {
                   width: "18rem",
                   height: "24rem",
                   boxShadow: "rgba(0, 0, 0, 0.24) 0px 2px 3px",
-                  backgroundColor: available ? "#fff" : "#ccc",
+                  backgroundColor: productAvailable ? "#fff" : "#ccc",
                   margin: "10px",
                   display: "flex",
                   flexDirection: "column",
@@ -115,6 +115,7 @@ const Home = ({ selectedCategory }) => {
                       top: "25px",
                       left: "220px",
                       zIndex: "1",
+                      
                     }}
                   >
                     <div className="buttons-liked">
@@ -156,9 +157,9 @@ const Home = ({ selectedCategory }) => {
                           e.preventDefault();
                           addToCart(product);
                         }}
-                        disabled={!available}
+                        disabled={!productAvailable}
                       >
-                        {available ? "Add to Cart" : "Out of Stock"}
+                        {productAvailable ? "Add to Cart" : "Out of Stock"}
                       </button>
                     </div>
                   </div>

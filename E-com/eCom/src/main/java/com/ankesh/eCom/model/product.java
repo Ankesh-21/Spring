@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import tools.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
-
+import java.time.LocalDateTime;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -23,21 +23,22 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
     private String desc;
     private String brand;
     private BigDecimal price;
     private String category;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
+    // @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private Date releaseDate;
-    private boolean available;
-    private int quantity;
-
+    private Boolean available;
+    private Integer stockQuantity;
+    
     // For image
     private String imageName;
     private String imageType;
     @Lob
     private byte[] imageData;
+    
 }
