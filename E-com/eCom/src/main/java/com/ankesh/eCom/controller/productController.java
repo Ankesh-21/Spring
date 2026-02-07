@@ -39,7 +39,7 @@ public class productController {
         return serv.getAllProducts();
     }
 
-    @RequestMapping("/product/{id}")
+    @GetMapping("/product/{id}")
     public product getByid(@PathVariable int id) {
         return serv.getProductByID(id);
     }

@@ -6,9 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jdk.jfr.DataAmount;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import tools.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 import java.time.LocalDateTime;
 import java.math.BigDecimal;
@@ -20,6 +18,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Getter
+@Setter
 public class product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
