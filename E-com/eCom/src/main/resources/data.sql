@@ -1,7 +1,7 @@
 INSERT INTO product 
     (name, desc, brand, price, category, release_date, available, stock_quantity, image_name, image_type, image_data)
 VALUES
-    ('iPhone 14 Pro', 'Flagship smartphone with Dynamic Island', 'Apple', 999.99, 'Smartphones', '2022-09-16', true, 45, 'iphone14pro.jpg', 'image/jpeg', NULL),
+    ('iPhone 14 Pro', 'Flagship smartphone with Dynamic Island', 'Apple', 999.99, 'Smartphones', '2022-09-16', false, 45, 'iphone14pro.jpg', 'image/jpeg', NULL),
 
     ('Samsung Galaxy S23 Ultra', 'Premium Android with S Pen', 'Samsung', 1199.00, 'Smartphones', '2023-02-17', true, 28, 's23ultra.jpg', 'image/jpeg', NULL),
 

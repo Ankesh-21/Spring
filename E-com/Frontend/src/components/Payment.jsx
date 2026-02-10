@@ -1,0 +1,14 @@
+import React from 'react'
+import { useParams } from 'react-router-dom'
+
+const Payment = () => {
+    const {id} = useParams();
+  return (
+    <div>
+        {console.log(id)
+        }
+    </div>
+  )
+}
+
+export default Payment
