@@ -9,8 +9,9 @@ const ProductDetail = () => {
     desc: "",
     price: 0,
     available: false,
-    category: ""
+    category: "",
   });
+  const [image, setImage] = useState([]);
   const { id } = useParams();
   useEffect(() => {
     axios.get(`http://localhost:8080/api/product/${id}`)
@@ -29,7 +30,7 @@ const ProductDetail = () => {
         {/* LEFT: Image */}
         <div className="md:w-1/2 flex justify-center items-center">
           <img
-            src="https://via.placeholder.com/400"
+            src={`http://localhost:8080/api/product/${id}/image`}
             alt="Product"
             className="w-full max-w-md rounded-xl shadow-lg object-cover"
           />
@@ -49,17 +50,17 @@ const ProductDetail = () => {
 
           <Link to={`/paymentgateway/${product.id}`}>
             <div className="flex gap-4 mt-4">
-              <button disabled = {!product.available} className={`px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 ${!product.available?"cursor-not-allowed":"hover:bg-blue-700"}`}>
+              <button disabled={!product.available} className={`px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 ${!product.available ? "cursor-not-allowed" : "hover:bg-blue-700"}`}>
                 {
                   product.available ? "Add to Cart" : "Out of Stock"
                 }
               </button>
-              <button disabled = {!product.available} className={`px-6 py-2 border border-gray-400 rounded-lg ${product.available ?
+              <button disabled={!product.available} className={`px-6 py-2 border border-gray-400 rounded-lg ${product.available ?
                 "bg-blue-600 hover:bg-green-700"
                 : "bg-gray-400 cursor-not-allowed"
                 }`} >
-                  Buy Now
-                </button>
+                Buy Now
+              </button>
 
             </div>
           </Link>
