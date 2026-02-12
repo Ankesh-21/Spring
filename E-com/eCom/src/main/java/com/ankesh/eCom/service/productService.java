@@ -27,4 +27,7 @@ public class productService {
         p.setImageData(imgFile.getBytes()); // converting in byte data
         return repo.save(p);
     }
+    public void deleteProduct(int id) {
+        repo.deleteById(id);
+    }
 }

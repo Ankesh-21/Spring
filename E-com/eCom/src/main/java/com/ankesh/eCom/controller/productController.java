@@ -3,15 +3,17 @@ package com.ankesh.eCom.controller;
 import com.ankesh.eCom.service.productService;
 
 import lombok.RequiredArgsConstructor;
-import tools.jackson.databind.ObjectMapper;
+// import tools.jackson.databind.ObjectMapper;
 
 import org.springframework.http.MediaType;
 // import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
@@ -72,5 +74,44 @@ public class productController {
         return ResponseEntity.ok()
         .contentType(MediaType.valueOf(fetchedProduct.getImageType()))
         .body(imageFile);
+    }
+    @DeleteMapping("/product/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable int id) {
+        try {
+            serv.deleteProduct(id);
+            return new ResponseEntity<>("Product deleted successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @PutMapping("/product/{id}")
+    public ResponseEntity<?> updateProduct(@PathVariable int id, @RequestPart("product") product updatedProduct, @RequestPart("imageFile") MultipartFile imgFile) {
+        try {
+            // First, fetch the existing product
+            product existingProduct = serv.getProductByID(id);
+            if (existingProduct == null) {
+                return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
+            }
+
+            // Update the existing product's fields with the new values
+            existingProduct.setName(updatedProduct.getName());
+            existingProduct.setDesc(updatedProduct.getDesc());
+            existingProduct.setPrice(updatedProduct.getPrice());
+
+            // If a new image file is provided, update the image data
+            if (imgFile != null && !imgFile.isEmpty()) {
+                existingProduct.setImageName(imgFile.getOriginalFilename());
+                existingProduct.setImageType(imgFile.getContentType());
+                existingProduct.setImageData(imgFile.getBytes());
+            }
+
+            // Save the updated product
+            product savedProduct = serv.addProduct(existingProduct, imgFile);
+            return new ResponseEntity<>(savedProduct, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 const AddProduct = () => {
     const [success, setSuccess] = useState(false);
@@ -14,7 +14,6 @@ const AddProduct = () => {
         releaseDate: "",
         available: false,
         stockQuantity: "",
-        image: null,
     });
 
     const handleChange = (e) => {
@@ -29,25 +28,53 @@ const AddProduct = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const { id } = useParams();
+
+    useEffect(() => {
+        if (!id) return;
+        // fetch product to edit
+        axios.get(`http://localhost:8080/api/product/${id}`)
+            .then((res) => {
+                // populate form fields; server returns image info separately
+                const data = res.data;
+                setProduct({
+                    name: data.name || "",
+                    desc: data.desc || "",
+                    brand: data.brand || "",
+                    price: data.price || "",
+                    category: data.category || "",
+                    releaseDate: data.releaseDate ? data.releaseDate.split('T')[0] : "",
+                    available: data.available || false,
+                    stockQuantity: data.stockQuantity || "",
+                });
+            })
+            .catch((err) => console.error(err));
+    }, [id]);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // FormData is required for image upload
         const formData = new FormData();
-        
         formData.append(
             "product",
             new Blob([JSON.stringify(product)], { type: "application/json" })
         );
-        formData.append("imageFile", product.image);
+        if (product.image && product.image instanceof File) {
+            formData.append("imageFile", product.image);
+        }
+
         setSuccess(true);
-        console.log("Submitting product:", product);
-        setTimeout(() => {
+        try {
+            if (id) {
+                await axios.put(`http://localhost:8080/api/product/${id}`, formData);
+            } else {
+                await axios.post("http://localhost:8080/api/product", formData);
+            }
+            navigate("/");
+        } catch (err) {
+            console.error(err);
             setSuccess(false);
-        }, 3000);
-        // later you can do:
-        axios.post("http://localhost:8080/api/product", formData)
-        navigate("/");
+        }
     };
 
     return (

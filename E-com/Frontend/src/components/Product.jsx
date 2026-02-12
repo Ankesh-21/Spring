@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Product = (props) => {
-    return (
+    const handleDelete = (e) => {
+        e.preventDefault();
+        if (props.onDelete) props.onDelete(props.id);
+    }
 
+    return (
         <div className="bg-neutral-primary-soft block max-w-sm border border-default rounded-base shadow-xs">
             <a href={`/product/${props.id}`}>
                 <img className="rounded-t-base" src="/docs/images/blog/image-1.jpg" alt="" />
@@ -13,18 +17,24 @@ const Product = (props) => {
                     {props.category}
                 </span>
                 <a href={`/product/${props.id}`}>
-                    <h5 className="mt-3 mb-6 text-2xl font-semibold tracking-tight text-heading">{props.name}</h5>
+                    <h5 className="mt-3 mb-4 text-2xl font-semibold tracking-tight text-heading">{props.name}</h5>
                 </a>
-                <a href={`/product/${props.id}`} className="inline-flex items-center text-black bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none bg-sky-500">
-                    {
-                        props.available ? "Add to Cart" : "Out of Stock"
-                    }
-                    <svg className="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12H5m14 0-4 4m4-4-4-4" /></svg>
-                </a>
+
+                <div className="flex items-center justify-center gap-2">
+                    <Link to={`/product/${props.id}`} className="inline-flex items-center text-black bg-sky-500 font-medium leading-5 rounded-base text-sm px-4 py-2.5">
+                        {props.available ? "View" : "View"}
+                    </Link>
+
+                    <Link to={`/product/edit/${props.id}`} className="inline-flex items-center text-white bg-yellow-500 font-medium leading-5 rounded-base text-sm px-3 py-2.5">
+                        Edit
+                    </Link>
+
+                    <button onClick={handleDelete} className="inline-flex items-center text-white bg-red-600 font-medium leading-5 rounded-base text-sm px-3 py-2.5">
+                        Delete
+                    </button>
+                </div>
             </div>
         </div>
-
-
     );
 };
 
