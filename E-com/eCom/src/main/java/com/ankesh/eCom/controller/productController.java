@@ -98,6 +98,11 @@ public class productController {
             existingProduct.setName(updatedProduct.getName());
             existingProduct.setDesc(updatedProduct.getDesc());
             existingProduct.setPrice(updatedProduct.getPrice());
+            existingProduct.setAvailable(updatedProduct.getAvailable());
+            existingProduct.setBrand(updatedProduct.getBrand());
+            existingProduct.setCategory(updatedProduct.getCategory());
+            existingProduct.setReleaseDate(updatedProduct.getReleaseDate());
+            existingProduct.setStockQuantity(updatedProduct.getStockQuantity());
 
             // If a new image file is provided, update the image data
             if (imgFile != null && !imgFile.isEmpty()) {
