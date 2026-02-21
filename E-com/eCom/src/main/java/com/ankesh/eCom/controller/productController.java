@@ -85,8 +85,8 @@ public class productController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @PutMapping("/product/{id}")
-    public ResponseEntity<?> updateProduct(@PathVariable int id, @RequestPart("product") product updatedProduct, @RequestPart("imageFile") MultipartFile imgFile) {
+    @PutMapping(value = "/product/{id}", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    public ResponseEntity<?> updateProduct(@PathVariable int id, @RequestPart("product") product updatedProduct, @RequestPart(value = "imageFile", required = false) MultipartFile imgFile) {
         try {
             // First, fetch the existing product
             product existingProduct = serv.getProductByID(id);
@@ -111,7 +111,7 @@ public class productController {
                 existingProduct.setImageData(imgFile.getBytes());
             }
 
-            // Save the updated product
+            // Save the updated product (service will handle null/empty imgFile)
             product savedProduct = serv.addProduct(existingProduct, imgFile);
             return new ResponseEntity<>(savedProduct, HttpStatus.OK);
         } catch (Exception e) {

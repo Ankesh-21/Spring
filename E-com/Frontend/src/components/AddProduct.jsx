@@ -15,6 +15,7 @@ const AddProduct = () => {
         available: false,
         stockQuantity: "",
     });
+    const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
 
     const handleChange = (e) => {
         const { name, value, type, checked, files } = e.target;
@@ -23,6 +24,9 @@ const AddProduct = () => {
             setProduct({ ...product, [name]: checked });
         } else if (type === "file") {
             setProduct({ ...product, image: files[0] });
+            if (files && files[0]) {
+                setImagePreviewUrl(URL.createObjectURL(files[0]));
+            }
         } else {
             setProduct({ ...product, [name]: value });
         }
@@ -47,6 +51,8 @@ const AddProduct = () => {
                     available: data.available || false,
                     stockQuantity: data.stockQuantity || "",
                 });
+                // set preview URL to image endpoint so existing image shows in edit
+                setImagePreviewUrl(`http://localhost:8080/api/product/${id}/image`);
             })
             .catch((err) => console.error(err));
     }, [id]);
@@ -213,6 +219,11 @@ const AddProduct = () => {
                     <label className="block text-sm font-medium text-gray-700">
                         Product Image
                     </label>
+                    {imagePreviewUrl && (
+                        <div className="mb-2">
+                            <img src={imagePreviewUrl} alt="Preview" className="max-w-xs rounded-md shadow-sm" />
+                        </div>
+                    )}
                     <input
                         type="file"
                         name="image"

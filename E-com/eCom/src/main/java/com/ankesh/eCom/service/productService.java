@@ -22,9 +22,11 @@ public class productService {
         return repo.findById(id).orElse(null);
     }
     public product addProduct(product p,MultipartFile imgFile) throws IOException{
-        p.setImageName(imgFile.getOriginalFilename());
-        p.setImageType(imgFile.getContentType());
-        p.setImageData(imgFile.getBytes()); // converting in byte data
+        if (imgFile != null && !imgFile.isEmpty()) {
+            p.setImageName(imgFile.getOriginalFilename());
+            p.setImageType(imgFile.getContentType());
+            p.setImageData(imgFile.getBytes()); // converting in byte data
+        }
         return repo.save(p);
     }
     public void deleteProduct(int id) {
