@@ -1,29 +1,27 @@
 import React, { useState } from 'react'
 
-const Product = ({props}) => {
-    // const [produt,setProduct] = useState({
-    //     brand:'',
-    //     name:'',
-    //     category:'',
-    //     size:'',
-    //     shape:'',
-    //     price:0
-    // });
-    // const updateProductDetails = (newProduct)=>{
-    //     setProduct((prevProduct)=>({
-    //         ...prevProduct,
-    //         brand: newProduct.brand,
-    //         name: newProduct.name,
-    //         category:newProduct.category,
-    //         size:newProduct.size,
-    //         shape:newProduct.shape,
-    //         price:newProduct.price
-    //     }));
-    // };
+const Product = (props) => {
   return (
-    <div>
-      Recieved:{props}
-    </div>
+    <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
+  <div className="p-4">
+    <h5 className="mb-2 text-slate-800 text-xl font-semibold">
+      {props.val.name}
+    </h5>
+    <p className="text-slate-600 leading-normal font-light">
+      {props.val.category}
+    </p>
+    <h5 className="mb-2 text-slate-800 text-xl font-semibold">
+      {props.val.brand}
+    </h5>
+    <button className="rounded-md bg-slate-800 py-2 px-4 mt-6 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+      Read more
+    </button>
+  </div>
+</div>
+    // <div>
+    //   {/* {console.log(props.val)} */}
+    //   Recieved:{JSON.stringify(props.val)}
+    // </div>
   )
 }
 

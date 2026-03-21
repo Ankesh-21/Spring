@@ -4,16 +4,17 @@ import Product from '../Components/Product';
 const Products = () => {
     const [products,setProducts] = useState([]);
     useEffect(()=>{
-        axios.get('https://localhost:8080/products')
+        axios.get('http://localhost:8080/products')
         .then(res=>{
-            setProducts(res.data)
+          console.log(`from then ${res.data}`);
+          setProducts(res.data)
         })
         .catch(err=>{
             console.log(err);
         });
     },[]);
   return (
-    <div>
+    <div className='flex-auto'>
       {products.map((p,ind)=>(
         <Product key={ind} val={p}/>
       ))}

@@ -1,9 +1,12 @@
 package com.HH.billing.Controller;
 import java.util.*;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.HH.billing.Models.Product;
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 public class HHcontroller {
     @GetMapping("/greet")
     public String Greet(){
