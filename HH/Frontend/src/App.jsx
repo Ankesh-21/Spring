@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Products from './Pages/Products';
+import Navbar from './Components/Navbar'
 const App = () => {
   // const [products,setProducts] = useState([]);
   // useEffect(()=>{
@@ -13,7 +14,11 @@ const App = () => {
   //   });
   // });
   return (
-    <Products/>
+    <>
+      <Navbar/>
+     <Products/>
+    </>
+   
   )
 }
 
