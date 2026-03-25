@@ -1,6 +1,8 @@
 package com.HH.billing.Controller;
 import java.util.*;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,11 +17,31 @@ public class HHcontroller {
     @GetMapping("/products")
     public List<Product> getAllProducts(){
         List<Product> ps = new ArrayList<>();
-        ps.add(new Product("Aero Sneakers", "Nike", "10", "Round", "Footwear", 4999));
-        ps.add(new Product("Classic T-Shirt", "Adidas", "Large", "Square", "Clothing", 1299));
-        ps.add(new Product("Smartwatch Series 5", "Apple", "42mm", "Circular", "Electronics", 29999));
-        ps.add(new Product("Wooden Dining Table", "Ikea", "6ft", "Rectangular", "Furniture", 15999));
-        ps.add(new Product("Gaming Mouse", "Logitech", "Standard", "Ergonomic", "Electronics", 3499));
+        String line;
+        String csvSeperater = ",";
+        int cnt = 0;
+        String FilePath = "C:\\Users\\hatui\\Desktop\\myProjects\\Spring\\HH\\billing\\src\\main\\java\\com\\HH\\billing\\Controller\\cpvc_full_dataset.csv";
+        try(BufferedReader br = new BufferedReader(new FileReader(FilePath))){
+            while((line = br.readLine()) != null){
+                String[] values = line.split(csvSeperater);
+//                int id = Integer.parseInt(values[0]);
+                if (cnt == 0){
+                    cnt ++;
+                    continue;
+                }
+                String product_name = values[1];
+                String category = values[2];
+                String size_inch = values[3];
+                String size_mm = values[4];
+                String pkg = values[5];
+                float mrp = Float.parseFloat(values[6]);
+                ps.add(new Product(product_name,category,size_inch,size_mm,mrp));
+
+                cnt ++;
+            }
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
         return ps;
     }
 }

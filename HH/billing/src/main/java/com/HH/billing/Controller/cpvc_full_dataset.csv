@@ -1,0 +1,54 @@
+id,product_name,category,size_inch,nominal_size_mm,std_pkg_bag,mrp
+1,Pipe SDR 13.5 Class 2,cpvc,1/2,15,50,71.0
+2,Pipe SDR 13.5 Class 2,cpvc,3/4,20,50,110.0
+3,Pipe SDR 13.5 Class 2,cpvc,1,25,25,161.0
+4,Pipe SDR 13.5 Class 2,cpvc,1 1/4,32,15,251.0
+5,Pipe SDR 13.5 Class 2,cpvc,1 1/2,40,10,355.0
+6,Pipe SDR 13.5 Class 2,cpvc,2,50,10,585.0
+7,Pipe SDR 11 Class 1,cpvc,1/2,15,50,80.5
+8,Pipe SDR 11 Class 1,cpvc,3/4,20,60,117.0
+9,Pipe SDR 11 Class 1,cpvc,1,25,25,182.0
+10,Pipe SDR 11 Class 1,cpvc,1 1/4,32,15,302.0
+11,Pipe SDR 11 Class 1,cpvc,1 1/2,40,10,414.0
+12,Pipe SDR 11 Class 1,cpvc,2,50,10,690.0
+13,Coupler,cpvc,1/2,15,800,13.4
+14,Coupler,cpvc,3/4,20,300,16.3
+15,Coupler,cpvc,1,25,150,27.0
+16,Coupler,cpvc,1 1/4,32,100,55.0
+17,Coupler,cpvc,1 1/2,40,50,100.0
+18,Coupler,cpvc,2,50,25,208.0
+19,Elbow 90,cpvc,1/2,15,400,17.8
+20,Elbow 90,cpvc,3/4,20,400,19.0
+21,Elbow 90,cpvc,1,25,100,39.5
+22,Elbow 90,cpvc,1 1/4,32,50,88.4
+23,Elbow 90,cpvc,1 1/2,40,30,168.0
+24,Elbow 90,cpvc,2,50,20,328.0
+25,Elbow 45,cpvc,1/2,15,600,19.5
+26,Elbow 45,cpvc,3/4,20,300,28.6
+27,Elbow 45,cpvc,1,25,100,50.5
+28,Elbow 45,cpvc,1 1/4,32,60,104.0
+29,Elbow 45,cpvc,1 1/2,40,42,172.0
+30,Elbow 45,cpvc,2,50,20,340.0
+31,Equal Tee,cpvc,3/4,20,150,32.7
+32,Equal Tee,cpvc,1,25,75,50.5
+33,Equal Tee,cpvc,1 1/4,32,40,111.0
+34,Equal Tee,cpvc,1 1/2,40,25,201.0
+35,Equal Tee,cpvc,2,50,10,422.0
+36,Ball Valve SDR 11,cpvc,1/2,15,100,115.0
+37,Ball Valve SDR 11,cpvc,3/4,20,100,184.0
+38,Ball Valve SDR 11,cpvc,1,25,150,341.0
+39,Ball Valve SDR 11,cpvc,1 1/4,32,36,538.0
+40,Ball Valve SDR 11,cpvc,1 1/2,40,30,952.0
+41,Ball Valve SDR 11,cpvc,2,50,12,1688.0
+42,End Cap,cpvc,1/2,15,1000,10.5
+43,End Cap,cpvc,3/4,20,600,14.4
+44,End Cap,cpvc,1,25,300,22.8
+45,End Cap,cpvc,1 1/4,32,150,45.5
+46,End Cap,cpvc,1 1/2,40,100,66.5
+47,End Cap,cpvc,2,50,40,148.0
+48,Pipe SCH 40,cpvc,2 1/2,65,5,1170.0
+49,Pipe SCH 40,cpvc,3,80,5,1582.0
+50,Pipe SCH 40,cpvc,4,100,3,2290.0
+51,Pipe SCH 80,cpvc,2 1/2,65,5,1630.0
+52,Pipe SCH 80,cpvc,3,80,5,2190.0
+53,Pipe SCH 80,cpvc,4,100,3,3254.0

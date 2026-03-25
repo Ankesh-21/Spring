@@ -48,10 +48,10 @@ const Navbar = () => {
         
         {/* HOST */}
         <a
-          href="#"
+          href="/addproduct"
           className="py-2 px-3 hover:bg-gray-200 rounded-full"
         >
-          Become a host
+          Add Products
         </a>
 
         {/* GLOBE */}

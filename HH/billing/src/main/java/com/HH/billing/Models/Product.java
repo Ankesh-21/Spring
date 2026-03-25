@@ -16,19 +16,19 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String brand;
-    private String size;
-    private String shape;
+    // id,product_name,category,size_inch,nominal_size_mm,std_pkg_bag,mrp
+    private String product_name;
     private String category;
-    private Integer price;
+    private String size_inch;
+    private String nominal_size_mm;
+    private String std_pkg_bag;
+    private Float mrp;
 
-    public Product(String name,String brand,String size,String shape,String category,int price){
-        this.name = name;
-        this.brand = brand;
+    public Product(String name,String category,String size,String size_mm,Float price){
+        this.product_name = name;
         this.category = category;
-        this.shape = shape;
-        this.size = size;
-        this.price = price;
+        this.nominal_size_mm = size_mm;
+        this.size_inch = size;
+        this.mrp = price;
     }
 }
