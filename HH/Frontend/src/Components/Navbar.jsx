@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import ModalPopup from "./ModalPopup";
 
 const Navbar = () => {
+  const [isopen,setIsopen] = useState(false);
   return (
     <nav className="bg-white w-full flex relative justify-between items-center mx-auto px-8 h-20">
-      
+
       {/* LOGO */}
       <div className="inline-flex">
         <a href="/">
@@ -25,10 +27,16 @@ const Navbar = () => {
       <div className="hidden sm:block flex-shrink flex-grow-0 px-2">
         <div className="inline-flex items-center">
           <button className="flex items-center w-60 border rounded-full px-3 py-1">
-            <span className="flex-grow text-gray-500">
+            <span className="flex-grow text-gray-500" onClick={()=>{setIsopen(true)}}>
               Start your search
             </span>
-
+            {isopen && (
+              <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                <div className="">
+                  
+                </div>
+              </div>
+            )}
             <div className="h-8 w-8 flex items-center justify-center">
               <svg
                 viewBox="0 0 32 32"
@@ -45,7 +53,7 @@ const Navbar = () => {
 
       {/* RIGHT SIDE */}
       <div className="flex items-center">
-        
+
         {/* HOST */}
         <a
           href="/addproduct"

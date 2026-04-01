@@ -20,7 +20,7 @@ public class HHcontroller {
         String line;
         String csvSeperater = ",";
         int cnt = 0;
-        String FilePath = "C:\\Users\\hatui\\Desktop\\myProjects\\Spring\\HH\\billing\\src\\main\\java\\com\\HH\\billing\\Controller\\cpvc_full_dataset.csv";
+        String FilePath = "C:\\Users\\hatui\\Desktop\\myKernel\\Spring\\HH\\billing\\src\\main\\java\\com\\HH\\billing\\Controller\\cpvc_full_dataset.csv";
         try(BufferedReader br = new BufferedReader(new FileReader(FilePath))){
             while((line = br.readLine()) != null){
                 String[] values = line.split(csvSeperater);
