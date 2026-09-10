@@ -63,4 +63,12 @@ public class StudentController {
         if (isDeleted == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.status(HttpStatus.FOUND).body("Record Deleted");
     }
+    @PatchMapping("/deleteSoftly/{id}")
+    public ResponseEntity<String>deleteStudentSoftly(@PathVariable Long id){
+        Boolean isDeleted = studentService.deleteSoftly(id);
+        if (!isDeleted){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Record Not Found");
+        }
+        return ResponseEntity.status(HttpStatus.FOUND).body("Record Deleted");
+    }
 }
