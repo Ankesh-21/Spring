@@ -5,6 +5,14 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Student {
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
+
     @Id
     private Long id;
     private String name;
@@ -12,6 +20,7 @@ public class Student {
     private String email;
     private int rollNo;
     private String subject;
+    private Boolean isDeleted;
 
     public String getName() {
         return name;

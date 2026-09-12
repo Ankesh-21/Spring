@@ -2,6 +2,9 @@ package org.learning.crudSpringbootDemo.service;
 
 import org.learning.crudSpringbootDemo.entity.Student;
 import org.learning.crudSpringbootDemo.repository.StudentRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +31,7 @@ public class StudentService {
         return stdResp;
     }
     public Student getStudent(Long id){
-        Optional<Student> stdResp = studentRepo.findById(id);
+        Optional<Student> stdResp = studentRepo.findByIdAndIsDeletedFalse(id);
         if (stdResp.isPresent()){
             return stdResp.get();
         }
@@ -36,11 +39,11 @@ public class StudentService {
     }
 
     public List<Student> getAllStudents(){
-        List<Student> stds = studentRepo.findAll();
+        List<Student> stds = studentRepo.findByIsDeletedFalse();
         return stds;
     }
     public Student updateStudent(Long id,Student newStudentInfo){
-        Optional<Student> existingStudentInfo = studentRepo.findById(id);
+        Optional<Student> existingStudentInfo = studentRepo.findByIdAndIsDeletedFalse(id);
         if (existingStudentInfo.isEmpty()){
             return null;
         }
@@ -50,14 +53,23 @@ public class StudentService {
         existingStudentInfo.get().setAge(newStudentInfo.getAge());
         existingStudentInfo.get().setRollNo(newStudentInfo.getRollNo());
         existingStudentInfo.get().setSubject(newStudentInfo.getSubject());
-
+        existingStudentInfo.get().setDeleted(false);
         Student updatedStudentInfo = studentRepo.save(existingStudentInfo.get());
         return updatedStudentInfo;
     }
     public Boolean deleteStudent(Long id){
-        Optional<Student> existingStudent = studentRepo.findById(id);
+        Optional<Student> existingStudent = studentRepo.findByIdAndIsDeletedFalse(id);
         if (existingStudent == null) return false;
         studentRepo.delete(existingStudent.get());
+        return true;
+    }
+    public Boolean deleteSoftly(Long id){
+        Optional<Student> studentResponse = studentRepo.findByIdAndIsDeletedFalse(id);
+        if (studentResponse.isEmpty()){
+            return false;
+        }
+        studentResponse.get().setDeleted(true);
+        studentRepo.save(studentResponse.get());
         return true;
     }
 }

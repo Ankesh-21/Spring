@@ -24,9 +24,11 @@ public class StudentController {
     // Create Student
     @PostMapping("/create")
     public ResponseEntity<Student> createStudent(@RequestBody Student student){
-        System.out.println("Entering the controller");
+        // System.out.println("Entering the controller");
+        // making isDeleted false by default
+        student.setDeleted(false);
         Student stdResp = studentService.createStd(student);
-        System.out.println("Exiting controller");
+        // System.out.println("Exiting controller");
         return ResponseEntity.status(HttpStatus.CREATED).body(stdResp);
     }
 
@@ -63,6 +65,7 @@ public class StudentController {
         if (isDeleted == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.status(HttpStatus.FOUND).body("Record Deleted");
     }
+
     @PatchMapping("/deleteSoftly/{id}")
     public ResponseEntity<String>deleteStudentSoftly(@PathVariable Long id){
         Boolean isDeleted = studentService.deleteSoftly(id);
