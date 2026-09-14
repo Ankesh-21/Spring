@@ -58,7 +58,7 @@ public class StudentService {
         return updatedStudentInfo;
     }
     public Boolean deleteStudent(Long id){
-        Optional<Student> existingStudent = studentRepo.findByIdAndIsDeletedFalse(id);
+        Optional<Student> existingStudent = studentRepo.findById(id);
         if (existingStudent == null) return false;
         studentRepo.delete(existingStudent.get());
         return true;

@@ -10,5 +10,8 @@ import java.util.Optional;
 @Component
 public interface StudentRepository extends JpaRepository<Student,Long> {
     public Optional<Student> findByIdAndIsDeletedFalse(Long id);
+    // JPA Query Naming Rules:
+    // findBy + FieldName + condition
+    // findAll + And is not possible and also when there is one field don't use And
     public List<Student> findByIsDeletedFalse();
 }
