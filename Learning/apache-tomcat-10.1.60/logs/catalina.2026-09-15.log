@@ -1,0 +1,47 @@
+15-Sep-2026 21:07:06.601 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.60
+15-Sep-2026 21:07:06.605 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 9 2026 22:35:59 UTC
+15-Sep-2026 21:07:06.605 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.60.0
+15-Sep-2026 21:07:06.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+15-Sep-2026 21:07:06.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+15-Sep-2026 21:07:06.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+15-Sep-2026 21:07:06.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21.0.12
+15-Sep-2026 21:07:06.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.12+7-LTS-205
+15-Sep-2026 21:07:06.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+15-Sep-2026 21:07:06.607 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60
+15-Sep-2026 21:07:06.607 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60
+15-Sep-2026 21:07:06.617 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\conf\logging.properties
+15-Sep-2026 21:07:06.618 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+15-Sep-2026 21:07:06.618 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+15-Sep-2026 21:07:06.618 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+15-Sep-2026 21:07:06.618 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+15-Sep-2026 21:07:06.618 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+15-Sep-2026 21:07:06.618 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+15-Sep-2026 21:07:06.618 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+15-Sep-2026 21:07:06.619 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+15-Sep-2026 21:07:06.619 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+15-Sep-2026 21:07:06.619 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+15-Sep-2026 21:07:06.619 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60
+15-Sep-2026 21:07:06.619 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60
+15-Sep-2026 21:07:06.619 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\temp
+15-Sep-2026 21:07:07.684 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.16] using APR version [1.7.6].
+15-Sep-2026 21:07:07.692 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.5.8 25 Aug 2026]
+15-Sep-2026 21:07:07.958 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+15-Sep-2026 21:07:07.982 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1555] milliseconds
+15-Sep-2026 21:07:08.033 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+15-Sep-2026 21:07:08.033 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.60]
+15-Sep-2026 21:07:08.046 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\webapps\docs]
+15-Sep-2026 21:07:08.318 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\webapps\docs] has finished in [271] ms
+15-Sep-2026 21:07:08.318 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\webapps\examples]
+15-Sep-2026 21:07:08.713 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\webapps\examples] has finished in [394] ms
+15-Sep-2026 21:07:08.713 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\webapps\host-manager]
+15-Sep-2026 21:07:08.750 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\webapps\host-manager] has finished in [37] ms
+15-Sep-2026 21:07:08.751 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\webapps\manager]
+15-Sep-2026 21:07:08.785 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\webapps\manager] has finished in [35] ms
+15-Sep-2026 21:07:08.786 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\webapps\ROOT]
+15-Sep-2026 21:07:08.807 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\ankes\Desktop\Spring\Learning\apache-tomcat-10.1.60\webapps\ROOT] has finished in [21] ms
+15-Sep-2026 21:07:08.811 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+15-Sep-2026 21:07:08.851 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [868] milliseconds
+15-Sep-2026 21:52:37.711 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+15-Sep-2026 21:52:37.723 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+15-Sep-2026 21:52:37.750 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+15-Sep-2026 21:52:37.759 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
